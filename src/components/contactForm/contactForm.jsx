@@ -1,7 +1,8 @@
 import css from './contactForm.module.css';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { phonebookContactSelector } from 'redux/phonebook/selectors';
 
-const ContactForm = ({ formSubmit }) => {
+const ContactForm = () => {
   return (
     <form className={css.phonebookForm} onSubmit={formSubmit}>
       <label className={css.phonebookForm__label}>
@@ -35,6 +36,3 @@ const ContactForm = ({ formSubmit }) => {
 
 export default ContactForm;
 
-ContactForm.prototype = {
-  formSubmit: PropTypes.func,
-};
