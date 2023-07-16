@@ -3,8 +3,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import { phonebookContactSelector } from 'redux/phonebook/selectors';
 
 const ContactForm = () => {
+  const contactsState = useSelector(phonebookContactSelector);
+  const dispatch = useDispatch();
+
+  const formsubmitHandler = event => {
+    event.preventDefault();
+
+    const name = event.target.name.value;
+
+    if (
+      contactsState
+        .map(contact => {
+          contact.name.toLowerCase();
+        })
+        .includes(name.toLowerCase())
+    ) {
+      return alert(`Name ${name} is already here`);
+    }
+    dispatch;
+  };
   return (
-    <form className={css.phonebookForm} onSubmit={formSubmit}>
+    <form className={css.phonebookForm} onSubmit={formsubmitHandler}>
       <label className={css.phonebookForm__label}>
         Name
         <input
