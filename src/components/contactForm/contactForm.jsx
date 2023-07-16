@@ -1,5 +1,6 @@
 import css from './contactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/phonebook/phonebooSlice';
 import { phonebookContactSelector } from 'redux/phonebook/selectors';
 
 const ContactForm = () => {
@@ -20,7 +21,13 @@ const ContactForm = () => {
     ) {
       return alert(`Name ${name} is already here`);
     }
-    dispatch;
+    dispatch(
+      addContact({
+        name: name,
+        number: event.target.number.value,
+      })
+    );
+    event.currentTarget.reset();
   };
   return (
     <form className={css.phonebookForm} onSubmit={formsubmitHandler}>

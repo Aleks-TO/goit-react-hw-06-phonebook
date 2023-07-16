@@ -1,7 +1,12 @@
 import css from './contactList.module.css';
-import PropTypes from 'prop-types';
+import {
+  phonebookContactSelector,
+  phonebookFilterSelector,
+} from 'redux/phonebook/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeContact } from 'redux/phonebook/phonebooSlice';
 
-const ContactList = ({ contacts, filter, onDeleteContact }) => {
+const ContactList = () => {
   return (
     <ul className={css.contacts__list}>
       {contacts.map(data => {
@@ -40,9 +45,3 @@ const ContactList = ({ contacts, filter, onDeleteContact }) => {
 };
 
 export default ContactList;
-
-ContactList.propTypes = {
-  contacts: PropTypes.array,
-
-  onDeleteContact: PropTypes.func,
-};
