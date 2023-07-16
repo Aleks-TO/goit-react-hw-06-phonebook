@@ -14,9 +14,7 @@ const ContactForm = () => {
 
     if (
       contactsState
-        .map(contact => {
-          contact.name.toLowerCase();
-        })
+        .map(contact => contact.name.toLowerCase())
         .includes(name.toLowerCase())
     ) {
       return alert(`Name ${name} is already here`);
